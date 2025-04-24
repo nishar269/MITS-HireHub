@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS HireHub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="container">
+            <div class="login-card">
+                <img id="app-logo" src="https://res.cloudinary.com/dcpyvyxp8/image/upload/v1745484710/mitshirehub_xunnz2.jpg" alt="MITS HireHub Logo">
+                <h2>Login To Your Account</h2>
+                <p>Select your role to login</p>
+                <div class="login-options">
+                    <button id="show-student-login">Student Login</button>
+                    <button id="show-admin-login">Admin Login</button>
+                </div>
+                <form id="student-login-form" class="login-section" style="display: none;">
+                    <input type="email" id="student-login-email" placeholder="Enter College Email (@mits.ac.in)" required pattern="[a-zA-Z0-9._%+-]+@mits\.ac\.in">
+                    <input type="password" id="student-login-password" placeholder="Enter your password" required>
+                    <a href="#" id="forgot-password-student">Forgot password?</a>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" id="show-register-student">Sign Up</a></p>
+                </form>
+                <form id="admin-login-form" class="login-section" style="display: none;">
+                    <input type="email" id="admin-login-email" placeholder="Enter Admin Email (e.g., jude123@mits.ac.in)" required pattern="[a-zA-Z]+[0-9]*@mits\.ac\.in">
+                    <input type="password" id="admin-login-password" placeholder="Enter your password" required>
+                    <a href="#" id="forgot-password-admin">Forgot password?</a>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" id="show-register-admin">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Page -->
+    <div id="register-page" class="page" style="display: none;">
+        <button id="logout-register" class="logout-btn">Logout</button>
+        <div class="container">
+            <h1>Register to MITS HireHub</h1>
+            <form id="register-form">
+                <input type="email" id="register-email" placeholder="College Email (@mits.ac.in)" required pattern="[a-zA-Z0-9._%+-]+@mits\.ac\.in">
+                <input type="password" id="register-password" placeholder="Set Password" required>
+                <button type="submit">Register</button>
+                <p>Already registered? <a href="#" id="show-login">Login here</a></p>
+            </form>
+        </div>
+        <div class="navigation-arrows">
+            <button id="back-register"><</button>
+            <button id="next-register">></button>
+        </div>
+    </div>
+
+    <!-- Student Profile Page -->
+    <div id="student-profile-page" class="page" style="display: none;">
+        <button id="logout-profile" class="logout-btn">Logout</button>
+        <div class="container">
+            <h1>Complete Your Profile</h1>
+            <div class="progress-bar">
+                <p>Profile Completion: <span id="profile-progress">0%</span></p>
+                <div id="progress-fill"></div>
+            </div>
+            <form id="profile-form">
+                <h3>Personal Details</h3>
+                <input type="file" id="profile-photo" accept="image/*">
+                <input type="text" id="personal-email" placeholder="Personal Email">
+                <input type="tel" id="mobile" placeholder="Mobile Number">
+                <select id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <select id="disability">
+                    <option value="no">Disability: No</option>
+                    <option value="yes">Disability: Yes</option>
+                </select>
+                <input type="url" id="linkedin" placeholder="LinkedIn URL (Optional)">
+                <input type="url" id="github" placeholder="GitHub URL (Optional)">
+
+                <h3>Academic Details</h3>
+                <input type="file" id="cert-10th" accept=".pdf" placeholder="Upload 10th Certificate">
+                <input type="file" id="cert-inter" accept=".pdf" placeholder="Upload Intermediate Certificate">
+                <input type="file" id="cert-ug" accept=".pdf" placeholder="Upload UG Certificates">
+                <input type="file" id="cert-pg" accept=".pdf" placeholder="Upload PG Certificates (Optional)">
+                <select id="branch">
+                    <option value="">Select Branch</option>
+                    <optgroup label="B.Tech">
+                        <option value="cse">CSE</option>
+                        <option value="cst">CST</option>
+                        <option value="ai">AI</option>
+                        <option value="ece">ECE</option>
+                        <option value="eee">EEE</option>
+                        <option value="mech">MECH</option>
+                        <option value="civil">CIVIL</option>
+                    </optgroup>
+                    <optgroup label="M.Tech">
+                        <option value="cs">CS</option>
+                        <option value="vlsi">VLSI</option>
+                        <option value="structural">Structural Engg.</option>
+                    </optgroup>
+                    <option value="mca">MCA</option>
+                    <option value="mba">MBA</option>
+                    <option value="bsc">B.Sc</option>
+                </select>
+
+                <h3>Skills & Interests</h3>
+                <input type="text" id="skills" placeholder="Skills (e.g., Java, Python, Communication)">
+                <select id="roles">
+                    <option value="">Select Interested Role</option>
+                    <option value="developer">Developer</option>
+                    <option value="analyst">Analyst</option>
+                    <option value="cloud-admin">Cloud Admin</option>
+                </select>
+                <input type="file" id="resume" accept=".pdf" placeholder="Upload Resume">
+
+                <h3>Create Resume</h3>
+                <textarea id="resume-content" placeholder="Enter resume content (e.g., education, experience, projects)"></textarea>
+                <button type="button" id="generate-resume">Generate Resume PDF</button>
+
+                <button type="submit">Save Profile</button>
+            </form>
+        </div>
+        <div class="navigation-arrows">
+            <button id="back-profile"><</button>
+            <button id="next-profile">></button>
+        </div>
+    </div>
+
+    <!-- Student Dashboard Page -->
+    <div id="student-dashboard-page" class="page" style="display: none;">
+        <button id="logout-dashboard" class="logout-btn">Logout</button>
+        <div class="container">
+            <header>
+                <h1>Student Dashboard</h1>
+                <nav>
+                    <a href="#" id="about-us-link">About Us</a>
+                    <button id="toggle-menu-student">☰</button>
+                </nav>
+            </header>
+            <div id="dashboard-content" class="dashboard-content">
+                <div class="jobs-section">
+                    <h2>Recommended Jobs</h2>
+                    <div class="job-card">
+                        <h3>Software Developer - TechCorp <span class="new-job-alert">🔔 New</span></h3>
+                        <p>CTC: 8 LPA | Location: Bangalore | Deadline: 2025-05-10</p>
+                        <button>Apply Now</button>
+                    </div>
+                    <div class="job-card">
+                        <h3>Data Analyst - DataInc <span class="new-job-alert">🔔 New</span></h3>
+                        <p>CTC: 6 LPA | Location: Remote | Deadline: 2025-05-15</p>
+                        <button>Apply Now</button>
+                    </div>
+                </div>
+                <button id="ai-assistant" class="ai-assistant">AI Assistant</button>
+            </div>
+            <div id="toggle-content-student" class="toggle-content" style="display: none;">
+                <ul>
+                    <li><a href="#" data-section="profile">Profile</a></li>
+                    <li><a href="#" data-section="calendar">Calendar</a></li>
+                    <li><a href="#" data-section="applications">My Applications</a></li>
+                    <li><a href="#" data-section="messages">Messages</a></li>
+                    <li><a href="#" data-section="book-slots">Book Slots</a></li>
+                    <li><a href="#" data-section="interview-experience">Interview Experience</a></li>
+                </ul>
+            </div>
+            <div id="toggle-details-student" class="toggle-details" style="display: none;"></div>
+            <div class="navigation-arrows">
+                <button id="back-dashboard"><</button>
+                <button id="next-dashboard">></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Page -->
+    <div id="admin-dashboard-page" class="page" style="display: none;">
+        <button id="logout-admin" class="logout-btn">Logout</button>
+        <div class="container">
+            <header>
+                <h1>Placement Cell Dashboard</h1>
+                <nav>
+                    <a href="#" id="about-us-link-admin">About Us</a>
+                    <button id="toggle-menu-admin">☰</button>
+                </nav>
+            </header>
+            <div id="admin-dashboard-content" class="dashboard-content">
+                <div class="job-posting">
+                    <h2>Post a Job</h2>
+                    <form id="job-post-form">
+                        <input type="text" placeholder="Company Name">
+                        <input type="text" placeholder="Role">
+                        <input type="number" placeholder="CTC (LPA)">
+                        <input type="text" placeholder="Eligibility (CGPA, Branch)">
+                        <input type="date" placeholder="Apply Deadline">
+                        <select>
+                            <option value="online">Interview: Online</option>
+                            <option value="offline">Interview: Offline</option>
+                        </select>
+                        <input type="text" placeholder="Location">
+                        <textarea placeholder="Job Description"></textarea>
+                        <button type="submit">Post Job</button>
+                    </form>
+                </div>
+            </div>
+            <div id="toggle-content-admin" class="toggle-content" style="display: none;">
+                <ul>
+                    <li><a href="#" data-section="posted-jobs">Posted Jobs</a></li>
+                    <li><a href="#" data-section="analytics">Analytics</a></li>
+                    <li><a href="#" data-section="notifications">Notifications</a></li>
+                    <li><a href="#" data-section="interview-scheduler">Interview Scheduler</a></li>
+                </ul>
+            </div>
+            <div id="toggle-details-admin" class="toggle-details" style="display: none;"></div>
+            <div class="navigation-arrows">
+                <button id="back-admin"><</button>
+                <button id="next-admin">></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Page (Shared) -->
+    <div id="about-us-page" class="page" style="display: none;">
+        <button id="logout-about" class="logout-btn">Logout</button>
+        <div class="container">
+            <h1>About MITS</h1>
+            <p>Madanapalle Institute of Technology & Science (MITS) is a premier engineering college located in Madanapalle, Andhra Pradesh, established in 1998. Affiliated with JNTUA and accredited by NAAC, MITS offers undergraduate and postgraduate programs in engineering, management, and computer applications. Known for its state-of-the-art infrastructure, experienced faculty, and strong placement record, MITS is committed to fostering innovation, research, and holistic development of students.</p>
+            <p><strong>Vision:</strong> To be a globally recognized institute for academic excellence and innovation.</p>
+            <p><strong>Mission:</strong> To provide quality education, promote research, and develop skilled professionals to meet industry needs.</p>
+        </div>
+        <div class="navigation-arrows">
+            <button id="back-about"><</button>
+            <button id="next-about">></button>
+        </div>
+    </div>
+</body>
+</html>
